@@ -1,77 +1,53 @@
-# Coalition Avenir LESIAQ - Répertoire Ipad
+# Optimisation des paramètres des gains d'un controlleur de type PID avec l'apprentissage par renforcement
 
-Ce repertoire contient l'intégralité du code pour l'application Ipad permettant le contrôle à distance  du robot pilotant l'ISTR. 
+Ce repertoire contient l'intégralité du code developpe dans le but d'optimiser les paramètres des gains d'un controlleur de type PID avec l'apprentissage par renforcement.  
 
-## Contenu
+Nous avons utilisé 3 algorithmes différents que sont :
 
-* Ce repertoire est mis à jour avec swift 5.0 et compatible avec IPAD Pro (9.7, 10.5 or 12.9) première et seconde generation. 
-* The Deployment Target of the App is set to : 12.2
-
-## Captures d'écran
-
- * Differents captures d'écrans pour l'applicatino:
-   ![Alt text](./PagedeControle1.jpeg "Page de controle")
- 
-   ![Alt text](./visualisation.JPG "Visualisation")
-
-## Compte temporaire pour les tests et la gestion des administrateurs
-
-Les comptes administrateurs temporaires:
-
-* email : steve.regis21@gmail.com
-* email : steve.regis21@live.fr
-* mot de passe : qwerty123
-
-Le compte pour la gestion des administrateurs:
-
-* Compte : lesiaqC300@gmail.com
-* Mot de passe : lesiaq1234
-
-* NB :  D'autres administrateurs peuvent etre ajoutés après la connexion d'un administrateur:
- 
-## Fonctionnalités
-
-* Commande à distance des axes de l'avion
-
-* Visualisation des données des surfaces de contrôle de l'avion en temps réel
-
-## Installation
-
-Vous devez avoir le logiciel Xcode 9.3+ compatible avec Swift 5.0 pour l'installer sur un Ipad compatible.
-
-* Ouvrir le fichier "C300Controller.xcworkspace" avec Xcode
-
-* Changer aussi la "Team development" selon la figure suivante
-   ![Alt text](./choisir1.jpg "Procedure pour Changer le compte de developpeur")
+* Q-Learning
+* Deep Q-learning
+* Deep Deterministic Policy Gradient
 
 
-* Choisir l'Ipad des periphiques et appuyer sur le boutton "Build" en haut à gauche pour installer et lancer l'application sur l'Ipad.
-   ![Alt text](./capture1.jpg "Procedure pour lancer l'application")
+Chaque dossier du repertoire est organisé comme suivant:
+
+* Algorithme : Contenant l'algoritme utilisé 
+* Résultats : Contenant les resultats obtenus suite à l'apprentissage de l'agent.
+
+
+### Pour une meilleure compréhension des algoritmes utilisés, la lecture du rapport est vivement encouragée.
+
+### Le fichier controlleur,m est le fichier matlab qui permet de simuler la reponse de notre systeme à une entrée unitaire
+
+## Q-Learning
+
+* Etats: [Kp, Ki , Kd]  
+* Actions: 9 actions discretes qui consistent à augmenter, diminuer ou garder constant chaque valeur de gain individuellement
+* Recompense : négatif de la valeur absolue de la différence entre les valeurs  de temps de reponse, overshoot et erreur en régime permanet désirées et obtenues 
+
+
+## Deep Q-learning
+
+* Etats: [Kp, Ki , Kd]  
+* Actions: 9 actions discretes qui consistent à augmenter, diminuer ou garder constant chaque valeur de gain individuellement
+* Recompense : implementation selon les essais et l'importance des parametres du controleur.
+
+
+## Deep Deterministic Policy Gradient
+
+* Etats: [Kp, Ki , Kd] 
+* Actions: repartition continue entre [-1,1]
+* Recompense : négatif de la valeur absolue de la différence entre les valeurs  de temps de reponse, overshoot et erreur en régime permanet désirées et obtenues
+
 
 ## Crédit 
 
-Pour la conception de cette application nous avons utilisé des librairies externes à travers les Pods suivant: 
+Nous faisons une mention spéciale à Udacity qui nous a permis d’avoir accès à un Github avec différentes implémentations d’algorithme pour l’apprentissage par renforcement. Nous nous sommes basés sur ces algorithmes afin de produire nos propres algorithmes pour notre cas d’étude. 
 
-* pod 'CDJoystick'  crédit à : [Librairie](https://cocoapods.org/pods/CDJoystick)
-
-* pod 'VerticalSlider' crédit à : [Librairie](http://cocoapods.org/pods/VerticalSlider)
-
-* pod 'Firebase/Core',pod 'Firebase/Auth', pod 'Firebase/Database', pod 'Firebase/Storage' crédit à :[Librairie](https://firebase.google.com)
-
-* pod 'CocoaMQTT' crédit à :[Librairie](https://github.com/emqtt/CocoaMQTT)
-
-Nous avons egalement utilisé les ressources disponible par AppCoda (https://www.appcoda.com) et de Raywenderlich (https://www.raywenderlich.com)
+Lien : https://github.com/udacity/deep-reinforcement-learning
 
 
 ## Auteurs
 
-Équipe Électrique/Logicielle - Coalition Avenir LESIAQ
-
-* BONTRON Aymeric
-* DAIGNEAULT Pierre-Olivier
-* ELBIDAOUI Yassin
-* GENDRON-RATELLE Raphaël
-* KOALAGA Steve
-* ROUILLARD Vincent
-* VENDETTE Marc-Gabriel
-* YAMAR GUEYE Aziz
+* Emile Dimas | contact: emiled16@gmail.com
+* Steve Regis Koalaga | contact: steve.regis21@gmail.com
