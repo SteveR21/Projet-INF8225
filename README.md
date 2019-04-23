@@ -1,4 +1,4 @@
-# Optimisation des paramètres des gains d'un controlleur de type PID avec l'apprentissage par renforcement
+# Optimisation des paramètres des gains d'un contrôleur de type PID avec l'apprentissage par renforcement
 
 Ce repertoire contient l'intégralité du code developpe dans le but d'optimiser les paramètres des gains d'un controlleur de type PID avec l'apprentissage par renforcement.  
 
